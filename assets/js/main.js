@@ -42,16 +42,22 @@ const questionPool = [
 ]
 
 let timeLeft;
-let currentQ;
+let currentQ = 0;
+let aCorrect;
 let startButton = $("#start");
 let quizArea = $("#quiz-area");
+let scoreboard = $("#scoreboard");
+let sbSubmit = $("#sbSubmit")
 let question = $("#question");
 let a1 = $("#answerOne");
 let a2 = $("#answerTwo");
 let a3 = $("#answerThree");
 let a4 = $("#answerFour");
+let initials = $("#initials");
+let score = 0;
+let reload = $("#reload")
 
-startButton.on("click", function() {
+startButton.on("click", () => {
     timer()
     displayQuestion()
 })
@@ -61,24 +67,95 @@ function displayQuestion() {
         endQuiz();
         return;
     }
+    aCorrect = `${questionPool[currentQ].correct}`
     startButton.css("display","none");
     quizArea.css("display","block");
-    question.append()
+    question.text(`${questionPool[currentQ].q}`);
+    a1.text(`${questionPool[currentQ].answer1}`);
+    a2.text(`${questionPool[currentQ].answer2}`);
+    a3.text(`${questionPool[currentQ].answer3}`);
+    a4.text(`${questionPool[currentQ].answer4}`);
 }
-// startButton.on("click", function() {
+
+let aSelected;
+
+a1.on("click", () => {
+    aSelected = 1;
+    if (aSelected == aCorrect) {
+        currentQ++;
+        score++;
+        displayQuestion();
+    }
+    else {
+        timeLeft = timeLeft - 5
+    }
+})
+
+a2.on("click", () => {
+    aSelected = 2;
+    if (aSelected == aCorrect) {
+        currentQ++;
+        score++;
+        displayQuestion();
+    }
+    else {
+        timeLeft = timeLeft - 5
+    }
+})
+
+a3.on("click", () => {
+    aSelected = 3;
+    if (aSelected == aCorrect) {
+        currentQ++;
+        score++;
+        displayQuestion();
+    }
+    else {
+        timeLeft = timeLeft - 5
+    }
+})
+
+a4.on("click", () => {
+    aSelected = 4;
+    if (aSelected == aCorrect) {
+        currentQ++;
+        score++;
+        displayQuestion();
+    }
+    else {
+        timeLeft = timeLeft - 5
+    }
+})
+
 function timer(){
-    timeLeft = 30;
+    timeLeft = 20;
     let timer = setInterval(function() {
-        $('#timer').replaceWith(`<h6 id="timer">${timeLeft}</h6>`)
+        $('#timer').text(`${timeLeft}`)
         timeLeft--;
         if (timeLeft <= 0) {
             clearInterval(timer)
-            $('#timer').replaceWith("<h6 id='timer'>Time's Up!</h6>");
+            $('#timer').text("");
             endQuiz();
         }
     }, 1000);
 }
 
-function endQuiz() {
 
+sbSubmit.on("click", () => {
+    event.preventDefault;
+    localStorage.setItem("Initials", `${initials.val()}`)
+    localStorage.setItem("Score", score)
+    $("userScore").text(`${initials.val}` + ' ' + `${score}`)
+})
+
+reload.on("click", () => {
+    event.preventDefault;
+    location.reload()
+})
+
+function endQuiz() {
+    
+    timeLeft = 0;
+    quizArea.css("display", "none");
+    scoreboard.css("display", "block");
 }
