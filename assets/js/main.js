@@ -145,7 +145,7 @@ sbSubmit.on("click", () => {
     event.preventDefault;
     localStorage.setItem("Initials", `${initials.val()}`)
     localStorage.setItem("Score", score)
-    $("userScore").text(`${initials.val}` + ' ' + `${score}`)
+    $("#userScore").text(`${initials.val()}` + '-' + `${score}`)
 })
 
 reload.on("click", () => {
