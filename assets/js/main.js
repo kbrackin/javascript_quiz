@@ -144,8 +144,14 @@ function timer(){
 sbSubmit.on("click", () => {
     event.preventDefault;
     localStorage.setItem("Initials", `${initials.val()}`)
-    localStorage.setItem("Score", score)
-    $("#userScore").text(`${initials.val()}` + '-' + `${score}`)
+    localStorage.setItem("Score", score);
+    if (score <= localStorage.getItem("Score")) {
+        $("#userScore").text(localStorage.getItem("Initials") + '-' + localStorage.getItem("Score"))
+    }
+    else {
+        $("#userScore").text(`${initials.val()}` + '-' + `${score}`)
+    }
+    
 })
 
 reload.on("click", () => {
@@ -158,4 +164,5 @@ function endQuiz() {
     timeLeft = 0;
     quizArea.css("display", "none");
     scoreboard.css("display", "block");
+    $("#userScore").text(localStorage.getItem("Initials") + '-' + localStorage.getItem("Score"))
 }
