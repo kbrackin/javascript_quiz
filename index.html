@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>JavaScript Quiz Game</title>
+</head>
+<body>
+    <!--Title and Instructions-->
+    <div>
+        <section class="text-center title">
+            <h1>Welcome to the JavaScript Quiz Game!</h1>
+            <p>To begin, click the 'START!' button</p>
+            <br>
+            <h3>How to play:</h3>
+            <p>Read the question given to you on the screen and answer it by selecting an option below the question. If you answer correctly, the next question will appear. If you don't, however, 5 seconds will be deducted for every answer you get wrong! Try to get a high score!</p>
+            <br>
+            <button type="button" id="start">START!</button>
+        </section>
+    </div>
+    <!--Questions and answers-->
+    <div class="o-container" id="quiz-area" style="display: none">
+        <h4 id="question">Sample text</h4>
+        <button class="a " id="answerOne">Sample text</button>
+        <button class="a " id="answerTwo">Sample text</button>
+        <button class="a " id="answerThree">Sample text</button>
+        <button class="a " id="answerFour">Sample text</button>
+    </div>
+    <!--Timer-->
+    <div class="timer">
+        <p id="timer"></p>
+
+    </div>
+    <!--Bootstrap CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!--Local Script-->
+    <script src="./assets/js/main.js"></script>
+    
+</body>
+</html>
+
+<!-- class="c-heading u-xlarge" -->
+<!-- class="u-center-block fixed-height-demo" -->
+<!-- class="u-center-block__content u-center-block__content--horizontal" -->
